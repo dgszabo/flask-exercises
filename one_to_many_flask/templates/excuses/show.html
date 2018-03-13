@@ -12,4 +12,6 @@
 <form method="POST" action="{{url_for('show_excuses', id=student.id, excuse_id=excuse.id)}}?_method=DELETE">
   <input type="submit" value="X">
 </form>
+<hr>
+<a href="{{url_for('index')}}">Go back to the main page!</a>
 {% endblock %}

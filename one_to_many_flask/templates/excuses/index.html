@@ -12,5 +12,7 @@
         <a href="{{url_for('show_excuses', id = student.id, excuse_id=exc.id)}}">See more about this excuse</a> |
     </p>
 {% endfor %}
+<hr>
+<a href="{{url_for('index')}}">Go back to the main page!</a>
 
 {% endblock %}

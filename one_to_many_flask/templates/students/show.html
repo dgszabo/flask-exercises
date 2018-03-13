@@ -9,4 +9,6 @@
 <form method="POST" action="{{url_for('show', id=student.id)}}?_method=DELETE">
   <input type="submit" value="X">
 </form>
+<hr>
+<a href="{{url_for('index_excuses', id=student.id)}}">See {{ student.first_name }}'s excuses</a>
 {% endblock %}
