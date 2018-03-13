@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{{url_for('new_excuses', id = student.id)}}">Add a new excuse</a>
+
+<h4>All excuses for {{ student.first_name }}:</h4>
+{% for exc in student.excuses %}
+    <p>
+        {{exc.content}} {{exc.is_bleievable}}
+        <br>
+        <a href="{{url_for('show_excuses', id = student.id, excuse_id=exc.id)}}">See more about this excuse</a> |
+    </p>
+{% endfor %}
+
+{% endblock %}

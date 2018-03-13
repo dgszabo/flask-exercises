@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h4>Add a new excuse: </h4>
+
+<form method="POST" action="{{url_for('index_excuses', id = id)}}">
+    <input type="text" name="content">
+    <input type="text" name="is_believable">
+    <input type="submit" value="Add an Excuse!">
+</form>
+
+{% endblock %}

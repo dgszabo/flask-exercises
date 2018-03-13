@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{{url_for('show_excuses', id=student.id, excuse_id=excuse.id)}}?_method=PATCH">
+    <input type="text" value="{{excuse.content}}" name="content">
+    <input type="text" value="{{excuse.is_believable}}" name="is_believable">
+    <input type="submit" value="Edit excuse!">
+</form>
+
+<form method="POST" action="{{url_for('show_excuses', id=student.id, excuse_id=excuse.id)}}?_method=DELETE">
+    <input type="submit" value="X">
+</form>
+
+
+{% endblock %}
