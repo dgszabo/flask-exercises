@@ -43,11 +43,14 @@ def root():
 @app.route('/students', methods=["GET", "POST"])
 def index():
     if request.method == 'POST':
-        new_student = Student(request.form['first_name'],
-                              request.form['last_name'])
-        db.session.add(new_student)
-        db.session.commit()
-        return redirect(url_for('index'))
+        form = StudentForm(request.form)
+        if form.validate():
+            new_student = Student(first_name = form.data['first_name'],
+                              last_name = form.data['last_name'])
+            db.session.add(new_student)
+            db.session.commit()
+            return redirect(url_for('index'))
+        return render_template('new.html', form = form)
     return render_template('index.html', students=Student.query.all())
 
 

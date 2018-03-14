@@ -3,10 +3,19 @@
 {% block content %}
 
 <form method="POST" action="{{url_for('index')}}">
-    {% for field in form %}
+    {{ form.hidden_tag() }}
+    
+    {% for field in form if field.widget.input_type != 'hidden' %}
     <div class="form-group">    
         {{ field.label }}
         {{ field (class_='form-control') }}
+        <small id="error_msg" class="form-text text-muted">
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    {{ error }}
+                {% endfor %}
+            {% endif %}
+        </small>
     </div>
     {% endfor %}
     
