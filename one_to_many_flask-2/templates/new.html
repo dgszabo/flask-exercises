@@ -3,9 +3,16 @@
 {% block content %}
 
 <form method="POST" action="{{url_for('index')}}">
-    <input type="text" name="first_name">
-    <input type="text" name="last_name">
-    <input type="submit" value="Add Student!">
+    {% for field in form %}
+    <div class="form-group">    
+        {{ field.label }}
+        {{ field (class_='form-control') }}
+    </div>
+    {% endfor %}
+    
+    <!-- <input type="text" name="first_name">
+    <input type="text" name="last_name">  -->
+    <button type="submit" class="btn btn-info">Add Student!</button>
 </form>
 
 {% endblock %}

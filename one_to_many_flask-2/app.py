@@ -2,12 +2,14 @@ from flask import Flask, request, redirect, url_for, render_template
 from flask_modus import Modus
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from forms import StudentForm
 
 app = Flask(__name__)
 app.config[
-    'SQLALCHEMY_DATABASE_URI'] = "postgres://localhost/flask_one_to_many"
+    'SQLALCHEMY_DATABASE_URI'] = "postgres://localhost/one_to_many_flask"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
+app.config['SECRET_KEY'] = 'hush'
 modus = Modus(app)
 db = SQLAlchemy(app)
 Migrate(app, db)
@@ -51,7 +53,8 @@ def index():
 
 @app.route('/students/new')
 def new():
-    return render_template('new.html')
+    form = StudentForm()
+    return render_template('new.html', form = form)
 
 
 @app.route('/students/<int:id>/edit')
