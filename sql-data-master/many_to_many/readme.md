@@ -78,7 +78,7 @@ Write the queries that will show you the following information:
     select studios.name, count(studios.name) from movies join studios on studios.id = movies.studio_id group by studios.name; -> this is the opposite
     select movies.title, studios.name from movies right join studios on studios.id = movies.studio_id where movies.title is null; -> this has a movies.title column too
     select studios.name from movies right join studios on studios.id = movies.studio_id where movies.title is null;
-    elect studios.name from studios left join movies on studios.id = movies.studio_id where movies.title is null;
+    select studios.name from studios left join movies on studios.id = movies.studio_id where movies.title is null;
 
 ### Part 4
 
@@ -97,7 +97,9 @@ As an exercise, write the queries that will show you the following information:
     select stars.first_name, stars.last_name from roles inner join stars on stars.id = roles.star_id inner join movies on movies.id = roles.movie_id where movies.rating = 'G';
 
 1.  The first and last names of every star along with the number of movies they have been in, in descending order by the number of movies.
-    select stars.first_name, stars.last_name, count(roles.star_id) from roles inner join stars on stars.id = roles.star_id inner join movies on movies.id = roles.movie_id group by stars.id order by count(stars.id) desc;
+    select stars.first_name, stars.last_name, count(roles.star_id) from roles inner join stars on stars.id = roles.star_id inner join movies on movies.id = roles.movie_id group by stars.id order by count(roles.star_id) desc;
+    interesting -> it also works with stars.id and roles.star_id, but only with star.id in the group condition
+    first_name, last_name also works!!! but on ly with comma!!! 
 
 1.  The title of every movie along with the number of stars in that movie, in descending order by the number of stars.
     SELECT movies.title, count(roles.star_id) AS number_of_stars FROM roles INNER JOIN stars ON stars.id = roles.star_id INNER JOIN movies ON movies.id = roles.movie_id GROUP BY movies.title ORDER BY count(roles.movie_id) DESC;
