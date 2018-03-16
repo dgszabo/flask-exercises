@@ -1,0 +1,63 @@
+\c movies_db
+DROP TABLE IF EXISTS stars;
+CREATE TABLE stars
+(
+  id SERIAL PRIMARY KEY,
+  first_name TEXT,
+  last_name TEXT,
+  birth_date DATE
+);
+INSERT INTO stars
+  (first_name, last_name, birth_date)
+VALUES
+  ('Frances', 'McDormand', '1957-06-23'),
+  ('Jim', 'Carrey', '1962-01-17'),
+  ('Emma', 'Watson', '1990-04-15'),
+  ('Daniel', 'Radcliffe', '1989-07-23'),
+  ('Charles', 'Chaplin', '1889-04-16'),
+  ('Morgan', 'Freeman', '1937-06-01'),
+  ('Will', 'Smith', '1968-09-25'),
+  ('Cameron', 'Diaz', '1972-08-30'),
+  ('Kate', 'Winslet', '1975-10-05'),
+  ('Natalie', 'Portman', '1981-06-09'),
+  ('Sean', 'Connery', '1930-08-25'),
+  ('Dwayne', 'Johnson', '1972-05-02'),
+  ('Angelina', 'Jolie', '1975-06-04'),
+  ('Scarlett', 'Johansson', '1984-11-22'),
+  ('Keira', 'Knightley', '1985-03-26'),
+  ('Halle', 'Berry', '1966-08-14'),
+  ('Samuel', 'Jackson', '1948-12-21'),
+  ('Tom', 'Hanks', '1956-07-09'),
+  ('Christopher', 'Plummer', '1929-12-13'),
+  ('Jennifer', 'Lawrence', '1990-08-15'),
+  ('Mila', 'Kunis', '1983-08-14'),
+  ('Kathy', 'Bates', '1948-06-28'),
+  ('Chris', 'Rock', '1965-02-07'),
+  ('Harrison', 'Ford', '1942-07-13'),
+  ('Wesley', 'Snipes', '1962-07-31'),
+  ('Viola', 'Davis', '1965-08-11'),
+  ('Bradley', 'Cooper', '1975-01-05'), 
+  ('Amy', 'Poehler', '1971-09-16'),
+  ('Joseph', 'Gordon-Levitt', '1981-02-17'),
+  ('Danai', 'Gurira', '1978-02-14'),
+  ('Jamie', 'Foxx', '1967-12-13'),
+  ('Angela', 'Bassett', '1958-08-16'),
+  ('Ian', 'McKellen', '1939-05-25'),
+  ('Maya', 'Rudolph', '1972-07-27'),
+  ('Jenny', 'Slate', '1982-03-25'),
+  ('Idris', 'Elba', '1972-09-06'),
+  ('Octavia', 'Spencer', '1972-05-25'),
+  ('Chadwick', 'Boseman', '1977-11-29'),
+  ('Michael', 'Keaton', '1951-09-05'),
+  ('Kristen', 'Wiig', '1973-08-22'),
+  ('Keanu', 'Reeves', '1964-09-02'),
+  ('Charlize', 'Theron', '1975-08-07'),
+  ('Helena', 'Carter', '1966-05-26'),
+  ('Daniel', 'Craig', '1968-03-02'),
+  ('Emma', 'Stone', '1988-11-06'),
+  ('Zoe', 'Saldana', '1978-06-19'),
+  ('Chris', 'Pratt', '1979-06-21'),
+  ('Anne', 'Hathaway', '1982-11-12'),
+  ('Ellen', 'DeGeneres', '1958-01-26'),
+  ('Robert', 'Downey Jr.', '1965-04-04');
+  
