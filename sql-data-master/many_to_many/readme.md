@@ -15,11 +15,22 @@ psql movies_db
 As a warmup, write the queries that will show you the following information:
 
 1.  The title of every movie.
+    select title from movies;
+
 1.  All information on the G-rated movies.
+    select * from movies where rating = 'G';
+
 1.  The title and release year of every movie, ordered with the oldest movie first.
+    select title, release_year from movies order by release_year;
+
 1.  All information on the 5 longest movies.
+    select * from movies order by runtime desc limit 5;
+
 1.  A table with columns of `rating` and `total`, tabulating the total number of G, PG, PG-13, and R-rated movies.
+    select rating, count(rating) as total from movies group by rating;
+
 1.  A table with columns of `release_year` and `average_runtime`, tabulating the average runtime by year for every movie in the database. The data should be in reverse chronological order (i.e. the most recent year should be first).
+    select release_year, round(avg(runtime)) as average_runtime from movies group by release_year order by release_year DESC;
 
 ### Part 2
 
@@ -32,9 +43,22 @@ psql < stars.sql
 As another warmup, write the queries that will show you the following information:
 
 1.  The first and last name of the five oldest stars.
+    select first_name, last_name from stars order by birth_date limit 5;
+
 1.  The first and last name of the five youngest stars.
+    select first_name, last_name from stars order by birth_date desc limit 5;
+
 1.  A table of first names along with the number of stars having that first name, provided that this number is greater than 1.
+    select first_name, case when count(first_name) > 1 then count(first_name) end from stars group by first_name;
+    select first_name, case when count(first_name) > 1 then count(first_name) end from stars group by first_name order by count(first_name) desc limit 3;
+    select first_name, count(first_name) from stars group by first_name HAVING count(first_name) > 1;
+
 1.  A table of years along with the number of stars born in that year, sorted chronologically.
+    SELECT EXTRACT(year FROM birth_date) AS birth_year,
+    COUNT(EXTRACT(year FROM birth_date))
+    FROM stars
+    GROUP BY birth_year
+    ORDER BY birth_year;
 
 ### Part 3
 
@@ -47,6 +71,8 @@ psql < studios.sql
 Write the queries that will show you the following information:
 
 1.  The movie title and studio name for every movie in the database.
+    
+
 2.  The names of all studios that have no movie in the database (try to do this with two different queries!)
 
 ### Part 4
