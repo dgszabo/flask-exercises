@@ -6,7 +6,7 @@ from flask_modus import Modus
 app = Flask(__name__)
 modus = Modus(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://localhost/many-many-example'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://localhost/m2m'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = "MOVE ME TO AN ENV FILE!"
 
