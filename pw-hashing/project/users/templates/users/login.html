@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <h2>add a new user</h2>
+    <h2>log in</h2>
     <form action="{{url_for('users.login')}}" method="POST">
         {{ form.hidden_tag() }}
 
@@ -22,6 +22,6 @@
                 </small>
             </div>
         {% endfor %}
-        <button type="submit" class="btn btn-secondary btn-lg btn-block">Sign up new user!</button>
+        <button type="submit" class="btn btn-secondary btn-lg btn-block">Log in as existing user!</button>
     </form>
     {% endblock %}
