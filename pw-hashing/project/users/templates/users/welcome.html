@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    internal website
+{% endblock %}
+
+{% block content %}
+    <h2>welcome to our internal webpage</h2>
+    <h3>click here to <a href="{{url_for('users.login')}}">log in</a> with a different user</h3>    
+{% endblock %}

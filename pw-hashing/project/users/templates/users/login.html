@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    sign up
+{% endblock %}
+
+{% block content %}
+    <h2>add a new user</h2>
+    <form action="{{url_for('users.login')}}" method="POST">
+        {{ form.hidden_tag() }}
+
+        {% for field in form if field.widget.input_type != 'hidden' %}
+            <div class="form-group">    
+                {{ field.label }}
+                {{ field (class_='form-control') }}
+                <small class="form-text text-danger error_msg">
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    {% endif %}
+                </small>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-secondary btn-lg btn-block">Sign up new user!</button>
+    </form>
+    {% endblock %}
